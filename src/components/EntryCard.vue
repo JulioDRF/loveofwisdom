@@ -1,0 +1,43 @@
+<template>
+  <div class="entry-card w-100 mb-2">
+    <b-card
+      :bg-variant="cardBackgroundVariant"
+      :text-variant="cardTextColor"
+      :title="entry.entryName"
+      align="left"
+      @click="goToEntryPage(entry)">
+      <b-card-text>{{ description }}</b-card-text>
+      <b-link :to="'/entry/' + entry.entryId">See more</b-link>
+    </b-card>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  name: 'EntryCard',
+  props: {
+    entry: Object
+  },
+  computed: {
+    description () {
+      return this.entry.preamble.split('').slice(0, 150).join('').trim() + '...'
+    },
+    ...mapGetters([
+      'cardTextColor',
+      'cardBackgroundVariant'
+    ])
+  },
+  methods: {
+    goToEntryPage (entry) {
+      return this.$router.push({ name: 'entry', params: { id: entry.entryId } })
+    }
+  }
+}
+</script>
+
+<style>
+.entry-card {
+  cursor: pointer
+}
+</style>
