@@ -1,0 +1,117 @@
+[
+  {
+    "categoryId": "aesthetics",
+    "categoryName": "Aesthetics",
+    "imageSrc": "https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "concept-comparisons",
+    "categoryName": "Concept Comparisons",
+    "imageSrc": "https://images.unsplash.com/photo-1464374288807-174911d4adb9?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "concepts-definitions",
+    "categoryName": "Concepts and Definitions",
+    "imageSrc": "https://images.unsplash.com/photo-1556696863-6c5eddae0f5f?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "epistemology",
+    "categoryName": "Epistemology",
+    "imageSrc": "https://images.unsplash.com/photo-1532012197267-da84d127e765?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "ethics",
+    "categoryName": "Ethics",
+    "imageSrc": "https://images.unsplash.com/photo-1583321500900-82807e458f3c?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "feminism",
+    "categoryName": "Feminism",
+    "imageSrc": "https://images.unsplash.com/photo-1591467016621-8ebde0dec5e4?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "fields-of-study",
+    "categoryName": "Fields of Study",
+    "imageSrc": "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "history",
+    "categoryName": "History",
+    "imageSrc": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "ideologies",
+    "categoryName": "Ideologies",
+    "imageSrc": "https://images.unsplash.com/photo-1488942446680-85dd7de440ef?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "law",
+    "categoryName": "Law",
+    "imageSrc": "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "logic",
+    "categoryName": "Logic",
+    "imageSrc": "https://images.unsplash.com/photo-1523875194681-bedd468c58bf?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "mathematics",
+    "categoryName": "Mathematics",
+    "imageSrc": "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "metaphysics",
+    "categoryName": "Metaphysics",
+    "imageSrc": "https://images.unsplash.com/photo-1527876383038-170fcf8360e7?&fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "mind-consciousness",
+    "categoryName": "Mind and Consciousness",
+    "imageSrc": "https://images.unsplash.com/photo-1559757175-5700dde675bc?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "miscellaneous-philosophies",
+    "categoryName": "Miscellaneous Philosophies",
+    "imageSrc": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "morality",
+    "categoryName": "Morality",
+    "imageSrc": "https://images.unsplash.com/photo-1559225306-3f60aa7b39a3?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "other-entries",
+    "categoryName": "Other Entries",
+    "imageSrc": "https://images.unsplash.com/photo-1431608660976-4fe5bcc2112c?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "paradoxes",
+    "categoryName": "Paradoxes",
+    "imageSrc": "https://images.unsplash.com/photo-1548318281-7da3085ce691?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "philosophers",
+    "categoryName": "Philosophers",
+    "imageSrc": "https://images.unsplash.com/photo-1528217580778-96e570819666?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "politics",
+    "categoryName": "Politics",
+    "imageSrc": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "quantum-mechanics",
+    "categoryName": "Quantum Mechanics",
+    "imageSrc": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?fit=crop&w=300&h=300"
+  },
+  {
+    "categoryId": "religion",
+    "categoryName": "Religion",
+    "imageSrc": "https://images.unsplash.com/photo-1458593140930-1f9049c952c1?fit=crop&w=300&q=300"
+  },
+  {
+    "categoryId": "science",
+    "categoryName": "Science",
+    "imageSrc": "https://images.unsplash.com/photo-1517976487492-5750f3195933?fit=crop&w=300&h=300"
+  }
+]
