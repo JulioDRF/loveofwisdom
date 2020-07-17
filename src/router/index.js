@@ -1,27 +1,74 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import store from '@/store'
+
+import About from '@/views/About.vue'
+import Category from '@/views/Category.vue'
+import Contact from '@/views/Contact.vue'
+import Entry from '@/views/Entry.vue'
+import Home from '@/views/Home.vue'
+import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
+
+const guardValidEntry = (to, from, next) => {
+  const entry = store.getters.entry(to.params.id)
+  if (entry) next()
+  else next('/not-found')
+}
+
+const guardValidCategory = (to, from, next) => {
+  const category = store.getters.category(to.params.id)
+  if (category) next()
+  else next('/not-found')
+}
+
+const scrollBehavior = (to, from, savedPosition) => {
+  return { x: 0, y: 0 }
+}
+
+Entry.beforeRouteEnter = guardValidEntry
+Entry.beforeRouteUpdate = guardValidEntry
+Category.beforeRouteEnter = guardValidCategory
+Category.beforeRouteUpdate = guardValidCategory
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    name: 'about',
+    component: About
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
+  },
+  {
+    path: '/entry/:id',
+    name: 'entry',
+    component: Entry
+  },
+  {
+    path: '/category/:id',
+    name: 'category',
+    component: Category
+  },
+  {
+    path: '/not-found',
+    name: 'not-found',
+    component: NotFound,
+    alias: '*'
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior
 })
 
 export default router
