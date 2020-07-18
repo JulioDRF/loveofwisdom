@@ -42,7 +42,6 @@ export default {
 <style>
 .entry-card-group-leave-to {
   opacity: 0;
-  transform: translateX(20%);
 }
 
 .entry-card-group-item,

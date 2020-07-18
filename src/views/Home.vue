@@ -19,7 +19,7 @@
       <b-card-group columns>
         <transition-group name="category-card-group" tag="div">
           <b-card
-            class="category-card-group-item p-1"
+            class="category-card-group-item"
             v-for="cat in displayedCategories"
             :key="cat.categoryId"
             :bg-variant="cardBackgroundVariant"
@@ -32,6 +32,9 @@
           </b-card>
         </transition-group>
       </b-card-group>
+      <div v-if="displayedCategories.length === 0">
+        <h4 align="center">No matches</h4>
+      </div>
     </b-container>
   </div>
 </template>
@@ -51,7 +54,7 @@ export default {
       'cardBackgroundVariant'
     ]),
     displayedCategories () {
-      return this.filteredCategories.length ? this.filteredCategories : this.categories
+      return this.currentSearch.length ? this.filteredCategories : this.categories
     },
     fuse () {
       return new Fuse(this.categories, {

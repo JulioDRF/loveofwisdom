@@ -8,7 +8,7 @@
       </b-row>
       <b-row class="mt-2">
          <b-col cols="auto" style="mr-auto">
-          <b-button variant="primary" :to="'/category/' + entry.categoryId">
+          <b-button variant="outline-primary" :to="'/category/' + entry.categoryId">
             <b-icon icon="arrow-left"></b-icon>
             {{ entry.categoryName }}
           </b-button>
@@ -62,11 +62,8 @@ export default {
     entry () {
       return this.$store.getters.entry(this.$route.params.id)
     },
-    relatedEntryIds () {
-      return this.entry.relatedEntries.map(r => r.entryId)
-    },
     relatedEntries () {
-      return this.$store.getters.entriesByIds(this.relatedEntryIds)
+      return this.$store.getters.entriesByIds(this.entry.relatedEntries)
     },
     formattedPreamble () {
       return this.entry.preamble
