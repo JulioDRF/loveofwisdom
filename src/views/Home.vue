@@ -17,19 +17,20 @@
         </b-col>
       </b-row>
       <b-card-group columns>
-        <b-card
-          class="category-card p-1"
-          v-for="cat in displayedCategories"
-          :key="cat.categoryId"
-          :bg-variant="cardBackgroundVariant"
-          :text-variant="cardTextColor"
-          :title="cat.categoryName"
-          :img-src="cat.imageSrc"
-          :img-alt="cat.categoryName"
-          img-top
-          @click="goToCategoryPage(cat)"
-        >
-        </b-card>
+        <transition-group name="category-card-group" tag="div">
+          <b-card
+            class="category-card-group-item p-1"
+            v-for="cat in displayedCategories"
+            :key="cat.categoryId"
+            :bg-variant="cardBackgroundVariant"
+            :text-variant="cardTextColor"
+            :title="cat.categoryName"
+            :img-src="cat.imageSrc"
+            :img-alt="cat.categoryName"
+            img-top
+            @click="goToCategoryPage(cat)">
+          </b-card>
+        </transition-group>
       </b-card-group>
     </b-container>
   </div>
@@ -80,8 +81,20 @@ export default {
 </script>
 
 <style>
-.category-card {
+.category-card-group-item {
   cursor: pointer;
   text-align: center;
 }
+.category-card-group-enter,
+.category-card-group-leave-to {
+  opacity: 0;
+}
+
+.category-card-group-item,
+.category-card-group-enter-active,
+.category-card-group-leave-active,
+.category-card-group-move {
+  transition: all 0.5s ease;
+}
+
 </style>

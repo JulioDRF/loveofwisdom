@@ -1,11 +1,13 @@
 <template>
   <div>
     <b-card-group>
-        <EntryCard
-          v-for="entry in chunkedEntries"
-          :key="entry.entryId"
-          :entry="entry">
-        </EntryCard>
+        <transition-group name="entry-card-group" tag="div">
+          <EntryCard
+            v-for="entry in chunkedEntries"
+            :key="entry.entryId"
+            :entry="entry">
+          </EntryCard>
+      </transition-group>
     </b-card-group>
   </div>
 </template>
@@ -36,3 +38,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.entry-card-group-leave-to {
+  opacity: 0;
+  transform: translateX(20%);
+}
+
+.entry-card-group-item,
+.entry-card-group-enter-active,
+.entry-card-group-leave-active,
+.entry-card-group-move {
+  transition: all 0.5s ease;
+}
+</style>

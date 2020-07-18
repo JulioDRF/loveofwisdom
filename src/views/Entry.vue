@@ -35,22 +35,10 @@
       </b-row>
       <b-row class="mt-2" align="left">
         <b-col cols="auto">
-          <EntryCardGroup
-            :current-page="currentPage"
-            :per-page="perPage"
+          <EntryCardGroupPaginated
+            :per-page="5"
             :entries="relatedEntries">
-          </EntryCardGroup>
-        </b-col>
-      </b-row>
-      <b-row v-if="needsPagination">
-        <b-col>
-          <b-pagination
-            class="pagination"
-            v-model="currentPage"
-            :total-rows="relatedEntries.length"
-            :per-page="perPage"
-            aria-controls="entry-card-group"
-          ></b-pagination>
+          </EntryCardGroupPaginated>
         </b-col>
       </b-row>
      </b-container>
@@ -58,13 +46,13 @@
 </template>
 
 <script>
-import EntryCardGroup from '@/components/EntryCardGroup'
+import EntryCardGroupPaginated from '@/components/EntryCardGroupPaginated'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Entry',
   components: {
-    EntryCardGroup
+    EntryCardGroupPaginated
   },
   computed: {
     ...mapGetters([
@@ -80,9 +68,6 @@ export default {
     relatedEntries () {
       return this.$store.getters.entriesByIds(this.relatedEntryIds)
     },
-    needsPagination () {
-      return this.relatedEntries.length > this.perPage
-    },
     formattedPreamble () {
       return this.entry.preamble
         .replace(/\s{3,}/g, 'this is a linebreak')
@@ -90,12 +75,6 @@ export default {
         .replace(/this is a linebreak/g, '\n\n')
         .replace(/\[\d\]/g, '')
         .replace(/\\\(\\lambda\\\)/g, 'λ')
-    }
-  },
-  data () {
-    return {
-      currentPage: 1,
-      perPage: 5
     }
   }
 }

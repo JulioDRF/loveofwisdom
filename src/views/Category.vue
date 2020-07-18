@@ -21,23 +21,11 @@
       </b-row>
       <b-row class="mt-4">
         <b-col>
-          <EntryCardGroup
-            id="entry-card-group"
-            :current-page="currentPage"
-            :per-page="perPage"
-            :entries="displayedEntries">
-          </EntryCardGroup>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <b-pagination
-            class="pagination"
-            v-model="currentPage"
-            :total-rows="displayedEntryCount"
-            :per-page="perPage"
-            aria-controls="entry-card-group"
-          ></b-pagination>
+          <EntryCardGroupPaginated
+            :per-page="10"
+            :entries="displayedEntries"
+            scrollOnPageChange>
+          </EntryCardGroupPaginated>
         </b-col>
       </b-row>
     </b-container>
@@ -46,12 +34,12 @@
 
 <script>
 import Fuse from 'fuse.js'
-import EntryCardGroup from '@/components/EntryCardGroup'
+import EntryCardGroupPaginated from '@/components/EntryCardGroupPaginated'
 
 export default {
   name: 'Category',
   components: {
-    EntryCardGroup
+    EntryCardGroupPaginated
   },
   computed: {
     category () {
@@ -62,9 +50,6 @@ export default {
     },
     displayedEntries () {
       return this.filteredEntries.length ? this.filteredEntries : this.entriesByCategory
-    },
-    displayedEntryCount () {
-      return this.displayedEntries.length
     },
     fuse () {
       return new Fuse(this.entriesByCategory, {
@@ -77,9 +62,7 @@ export default {
   data () {
     return {
       filteredEntries: [],
-      currentSearch: '',
-      currentPage: 1,
-      perPage: 10
+      currentSearch: ''
     }
   },
   methods: {
@@ -88,26 +71,6 @@ export default {
         ? this.fuse.search(this.currentSearch).map(({ item }) => item)
         : this.entriesByCategory
     }
-  },
-  watch: {
-    currentPage: () => {
-      setTimeout(() => window.scroll(0, 0), 1)
-    }
   }
 }
 </script>
-
-<style>
-.pagination > li.page-item > button.page-link {
-  color: var(--text-color);
-  background: var(--bg-color-secondary);
-}
-.pagination > li.page-item.active > button.page-link {
-  color: #ffffff;
-  background: #007bff;
-}
-.pagination > li.page-item.disabled > span {
-  color: var(--text-color);
-  background: var(--bg-color-secondary);
-}
-</style>

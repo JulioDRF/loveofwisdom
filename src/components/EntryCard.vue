@@ -1,6 +1,7 @@
 <template>
   <div class="entry-card w-100 mb-2">
     <b-card
+      class="entry-card-group-item"
       :bg-variant="cardBackgroundVariant"
       :text-variant="cardTextColor"
       :title="entry.entryName"
