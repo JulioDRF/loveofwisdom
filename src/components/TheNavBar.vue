@@ -27,10 +27,11 @@
           <div class="w-100">
             <v-select
               class="nav-vselect"
-              placeholder="Search for an entry"
+              placeholder="Jump to an entry"
               label="entryName"
-              :options="entries"
-              :filter="fuzzySearch"
+              selectOnTab
+              :options="filteredEntries"
+              @search="setCurrentSearch"
               @input="goToEntryPage"/>
           </div>
         </b-navbar-nav>
@@ -40,7 +41,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import Fuse from 'fuse.js'
 
 export default {
@@ -50,26 +51,32 @@ export default {
       'entries',
       'darkModeEnabled'
     ]),
-    navBarType () {
-      return this.darkModeEnabled ? 'dark' : 'light'
-    },
+    ...mapGetters([
+      'navBarType'
+    ]),
     fuse () {
       return new Fuse(this.entries, {
         keys: ['entryName'],
         shouldSort: true,
         threshold: 0.2
       })
+    },
+    filteredEntries () {
+      const result = this.currentSearch.length
+        ? this.fuse.search(this.currentSearch).map(({ item }) => item)
+        : this.entries
+      return result.slice(0, 10)
+    }
+  },
+  data () {
+    return {
+      currentSearch: ''
     }
   },
   methods: {
     ...mapActions([
       'toggleDarkMode'
     ]),
-    fuzzySearch (options, search) {
-      return search.length
-        ? this.fuse.search(search).map(({ item }) => item)
-        : this.entries
-    },
     goToEntryPage (entry) {
       if (!entry) return
       return this.$router.push({ name: 'entry', params: { id: entry.entryId } })
@@ -80,6 +87,9 @@ export default {
       } else {
         this.$router.push('/')
       }
+    },
+    setCurrentSearch (search) {
+      this.currentSearch = search
     }
   }
 }
@@ -111,9 +121,12 @@ export default {
   .nav-vselect .vs__selected,
   .nav-vselect .vs__search::placeholder,
   .nav-vselect .vs__dropdown-toggle,
-  .nav-vselect .vs__dropdown-option,
   .nav-vselect .vs__dropdown-menu {
     background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .nav-vselect .vs__dropdown-option {
     color: var(--text-color);
   }
 

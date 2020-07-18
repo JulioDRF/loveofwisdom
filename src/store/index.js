@@ -24,10 +24,12 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEntries ({ commit }) {
-      commit(constants.SET_ENTRIES, api.getEntries())
+      const entries = api.getEntries().sort((a, b) => a.entryName.localeCompare(b.entryName))
+      commit(constants.SET_ENTRIES, entries)
     },
     fetchCategories ({ commit }) {
-      commit(constants.SET_CATEGORIES, api.getCategories())
+      const categories = api.getCategories().sort((a, b) => a.categoryName.localeCompare(b.categoryName))
+      commit(constants.SET_CATEGORIES, categories)
     },
     toggleDarkMode ({ commit }) {
       commit(constants.TOGGLE_DARK_MODE)
@@ -43,16 +45,19 @@ export default new Vuex.Store({
       return state.entries.find(e => e.entryId === entryId)
     },
     entriesByIds: state => entryIds => {
-      return state.entries.filter(e => entryIds.includes(e.entryId)).sort((a, b) => a.entryName.localeCompare(b.entryName))
+      return state.entries.filter(e => entryIds.includes(e.entryId))
     },
     entriesByCategory: state => categoryId => {
-      return state.entries.filter(e => e.categoryId === categoryId).sort((a, b) => a.entryName.localeCompare(b.entryName))
+      return state.entries.filter(e => e.categoryId === categoryId)
     },
     cardBackgroundVariant: state => {
       return state.darkModeEnabled ? 'dark' : 'light'
     },
     cardTextColor: state => {
       return state.darkModeEnabled ? 'white' : 'black'
+    },
+    navBarType: state => {
+      return state.darkModeEnabled ? 'dark' : 'light'
     }
   }
 })
