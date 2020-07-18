@@ -1,5 +1,5 @@
 {
-  "name": "ui-philosophy",
+  "name": "love-of-wisdom",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,8 +12,8 @@
     "@popperjs/core": "^2.4.4",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
+    "firebase": "^7.16.1",
     "fuse.js": "^6.4.0",
-    "portal-vue": "^2.1.7",
     "typeface-roboto": "0.0.75",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -41,7 +41,6 @@
     "lint-staged": "^9.5.0",
     "mutationobserver-shim": "^0.3.3",
     "popper.js": "^1.16.0",
-    "portal-vue": "^2.1.6",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-bootstrap-vue": "^0.6.0",
