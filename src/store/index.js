@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import api from '../api'
 import constants from './constants.js'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -11,6 +12,11 @@ export default new Vuex.Store({
     categories: [],
     darkModeEnabled: false
   },
+  plugins: [
+    createPersistedState({
+      paths: ['entries', 'categories', 'darkModeEnabled']
+    })
+  ],
   mutations: {
     SET_ENTRIES (state, payload) {
       state.entries = payload
@@ -34,8 +40,6 @@ export default new Vuex.Store({
     toggleDarkMode ({ commit }) {
       commit(constants.TOGGLE_DARK_MODE)
     }
-  },
-  modules: {
   },
   getters: {
     category: state => categoryId => {
