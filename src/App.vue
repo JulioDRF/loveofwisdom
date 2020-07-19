@@ -1,7 +1,7 @@
 <template>
   <div id="app" :style="injectedStyle">
     <TheNavBar/>
-    <router-view class="nav-padding"/>
+    <router-view class="router-content"/>
     <TheFooter/>
   </div>
 </template>
@@ -51,6 +51,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body, #app, .router-content {
+  height: 100%;
+}
+
 #app {
   color: var(--text-color);
   background: var(--bg-color);
@@ -59,7 +63,7 @@ html {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-.nav-padding {
+.router-content {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }

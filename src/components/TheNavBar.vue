@@ -97,18 +97,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  #the-nav-bar a {
-    color: var(--text-color);
-  }
-
-  #the-nav-bar a.router-link-exact-active {
-    color: #0093ee;
-  }
-
-  #the-nav-bar a.navbar-brand.router-link-exact-active {
-    color: var(--text-color);
-  }
-
   .cursor-pointer {
     cursor: pointer;
   }

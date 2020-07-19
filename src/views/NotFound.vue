@@ -8,7 +8,7 @@
       </b-row>
       <b-row align="center">
         <b-col cols="auto" class="m-auto">
-          <p>Make sure the URL you are using is correct. If something smells funny, please <b-link to="/contact">let us know</b-link>
+          <p>Make sure the URL you are using is correct. If something smells funny, please <b-link to="/contact">let me know</b-link>
           </p>
         </b-col>
       </b-row>
