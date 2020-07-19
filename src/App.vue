@@ -51,8 +51,12 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body, #app, .router-content {
-  height: 100%;
+html, body, #app {
+  min-height: 100%;
+}
+
+.router-content {
+  min-height: 100vh;
 }
 
 #app {

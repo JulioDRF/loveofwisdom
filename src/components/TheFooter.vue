@@ -1,47 +1,44 @@
 <template>
-  <footer id="the-footer">
+  <footer id="the-footer" class="d-none d-sm-block">
     <b-navbar
-      toggleable="md"
       :type="navBarType"
       :variant="navBarType">
-      <b-collapse is-nav>
-        <b-navbar-nav class="w-100">
-          <b-container fluid>
-            <b-row align="center" class="w-100">
-              <b-col md="2">
-                <b-nav-item to="/">Home</b-nav-item>
-              </b-col>
-              <b-col md="2">
-                <b-nav-item to="/about">About</b-nav-item>
-              </b-col>
-              <b-col md="2">
-                <b-nav-item to="/contact">Contact</b-nav-item>
-              </b-col>
-              <b-col md="1">
-                <b-nav-item target="_blank" href="https://github.com/JulioDRF">
-                  <img src="../assets/svg/github.svg"/>
-                </b-nav-item>
-              </b-col>
-              <b-col md="1">
-                <b-nav-item target="_blank" href="https://linkedin.com/in/JulioDRF">
-                  <img src="../assets/svg/linkedin.svg"/>
-                </b-nav-item>
-              </b-col>
-              <b-col md="1">
-                <b-nav-item href="mailto:juliodrangelfarell@gmail.com">
-                  <b-icon icon="envelope"></b-icon>
-                </b-nav-item>
-              </b-col>
-              <b-col md="3">
-                <b-nav-text>
-                  Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-                </b-nav-text>
-              </b-col>
-            </b-row>
-          </b-container>
+      <b-navbar-nav class="w-100">
+        <b-container fluid>
+          <b-row align="center" class="w-100">
+            <b-col md="2">
+              <b-nav-item to="/">Home</b-nav-item>
+            </b-col>
+            <b-col md="2">
+              <b-nav-item to="/about">About</b-nav-item>
+            </b-col>
+            <b-col md="2">
+              <b-nav-item to="/contact">Contact</b-nav-item>
+            </b-col>
+            <b-col md="1">
+              <b-nav-item target="_blank" href="https://github.com/JulioDRF">
+                <img src="../assets/svg/github.svg"/>
+              </b-nav-item>
+            </b-col>
+            <b-col md="1">
+              <b-nav-item target="_blank" href="https://linkedin.com/in/JulioDRF">
+                <img src="../assets/svg/linkedin.svg"/>
+              </b-nav-item>
+            </b-col>
+            <b-col md="1">
+              <b-nav-item href="mailto:juliodrangelfarell@gmail.com">
+                <b-icon icon="envelope"></b-icon>
+              </b-nav-item>
+            </b-col>
+            <b-col md="3">
+              <b-nav-text>
+                Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+              </b-nav-text>
+            </b-col>
+          </b-row>
+        </b-container>
 
-        </b-navbar-nav>
-      </b-collapse>
+      </b-navbar-nav>
     </b-navbar>
     </footer>
 </template>
@@ -55,8 +52,6 @@ export default {
     ...mapGetters([
       'navBarType'
     ])
-  },
-  methods: {
   }
 }
 </script>
