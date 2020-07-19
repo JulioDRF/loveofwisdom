@@ -60,7 +60,8 @@ export default {
       return new Fuse(this.categories, {
         keys: ['categoryName'],
         shouldSort: true,
-        threshold: 0.2
+        threshold: 0.2,
+        ignoreLocation: true
       })
     }
   },
