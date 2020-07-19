@@ -21,9 +21,14 @@
             body-class="preamble-text"
             :bg-variant="cardBackgroundVariant"
             :text-variant="cardTextColor">
-            <b-card-text>{{ formattedPreamble }}</b-card-text>
-            <b-card-text>Full entry:
-              <b-link target="_blank" :href="entry.sepUrl">{{ entry.sepUrl }}</b-link>
+            <div v-if="needsMathFormatting" :key="entry.entryId + 'Math'">
+              <b-card-text v-katex:auto>{{ formattedPreamble }}</b-card-text>
+            </div>
+            <div v-else :key="entry.entryId">
+              <b-card-text>{{ formattedPreamble }}</b-card-text>
+            </div>
+            <b-card-text align="left">
+              Full entry: <b-link target="_blank" :href="entry.sepUrl">{{ entry.sepUrl }}</b-link>
             </b-card-text>
           </b-card>
         </b-col>
@@ -68,18 +73,23 @@ export default {
     formattedPreamble () {
       return this.entry.preamble
         .replace(/\s{3,}/g, 'this is a linebreak')
-        .replace(/\n{1,2}/g, ' ')
+        .replace(/\s{1,2}/g, ' ')
         .replace(/this is a linebreak/g, '\n\n')
         .replace(/\[\d\]/g, '')
-        .replace(/\\\(\\lambda\\\)/g, 'λ')
+    },
+    needsMathFormatting () {
+      return this.entry.preamble.includes('(\\')
     }
   }
 }
 </script>
 
-<style scoped>
-  .preamble-text {
-    white-space: pre-line;
-    text-align: justify;
-  }
+<style>
+.preamble-text {
+  white-space: pre-line;
+  text-align: justify;
+}
+.preamble-text > p > span > span.katex-display {
+  margin: 0;
+}
 </style>
