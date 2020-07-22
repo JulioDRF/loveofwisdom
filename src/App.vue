@@ -9,7 +9,7 @@
 <script>
 import TheFooter from '@/components/TheFooter.vue'
 import TheNavBar from '@/components/TheNavBar.vue'
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -31,22 +31,11 @@ export default {
     ...mapState([
       'darkModeEnabled'
     ])
-  },
-  methods: {
-    ...mapActions([
-      'fetchCategories',
-      'fetchEntries'
-    ])
-  },
-  mounted () {
-    this.fetchCategories()
-    this.fetchEntries()
   }
 }
 </script>
 
 <style>
-
 html {
   scroll-behavior: smooth;
 }

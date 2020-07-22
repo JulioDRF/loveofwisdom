@@ -61,12 +61,16 @@ const routes = [
   {
     path: '/not-found',
     name: 'not-found',
-    component: NotFound,
-    alias: '*'
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect: 'not-found'
   }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
   scrollBehavior
 })

@@ -72,8 +72,8 @@ export default {
     },
     formattedPreamble () {
       return this.entry.preamble
-        .replace(/\s{3,}/g, 'this is a linebreak')
-        .replace(/\s{1,2}/g, ' ')
+        .replace(/\s{4,}/g, 'this is a linebreak')
+        .replace(/\s{1,3}/g, ' ')
         .replace(/this is a linebreak/g, '\n\n')
         .replace(/\[\d\]/g, '')
     },

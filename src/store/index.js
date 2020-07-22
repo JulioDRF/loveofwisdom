@@ -8,8 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    entries: [],
-    categories: [],
+    entries: api.getEntries().sort((a, b) => a.entryName.localeCompare(b.entryName)),
+    categories: api.getCategories().sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
     darkModeEnabled: false
   },
   plugins: [
@@ -18,25 +18,11 @@ export default new Vuex.Store({
     })
   ],
   mutations: {
-    SET_ENTRIES (state, payload) {
-      state.entries = payload
-    },
-    SET_CATEGORIES (state, payload) {
-      state.categories = payload
-    },
     TOGGLE_DARK_MODE (state) {
       state.darkModeEnabled = !state.darkModeEnabled
     }
   },
   actions: {
-    fetchEntries ({ commit }) {
-      const entries = api.getEntries().sort((a, b) => a.entryName.localeCompare(b.entryName))
-      commit(constants.SET_ENTRIES, entries)
-    },
-    fetchCategories ({ commit }) {
-      const categories = api.getCategories().sort((a, b) => a.categoryName.localeCompare(b.categoryName))
-      commit(constants.SET_CATEGORIES, categories)
-    },
     toggleDarkMode ({ commit }) {
       commit(constants.TOGGLE_DARK_MODE)
     }
