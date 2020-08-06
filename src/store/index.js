@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import api from '../api'
 import constants from './constants.js'
 import createPersistedState from 'vuex-persistedstate'
+import * as Cookies from 'js-cookie'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,12 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['entries', 'categories', 'darkModeEnabled']
+      storage: {
+        getItem: (key) => Cookies.get(key),
+        setItem: (key, value) => Cookies.set(key, value, { expires: 1 }),
+        removeItem: (key) => Cookies.remove(key)
+      },
+      paths: ['darkModeEnabled']
     })
   ],
   mutations: {
