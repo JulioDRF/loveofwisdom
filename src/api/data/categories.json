@@ -35,11 +35,6 @@
     "imageSrc": "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?fit=crop&w=300&h=300"
   },
   {
-    "categoryId": "history",
-    "categoryName": "History",
-    "imageSrc": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?fit=crop&w=300&h=300"
-  },
-  {
     "categoryId": "ideologies",
     "categoryName": "Ideologies",
     "imageSrc": "https://images.unsplash.com/photo-1488942446680-85dd7de440ef?fit=crop&w=300&h=300"
