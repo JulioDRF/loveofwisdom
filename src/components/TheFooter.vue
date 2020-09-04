@@ -46,7 +46,7 @@
             </b-col>
             <b-col md="1">
               <b-nav-item href="mailto:juliodrangelfarell@gmail.com">
-                <b-icon icon="envelope" />
+                <b-icon-envelope />
               </b-nav-item>
             </b-col>
             <b-col md="3">

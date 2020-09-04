@@ -18,7 +18,7 @@
             variant="outline-primary"
             to="/"
           >
-            <b-icon icon="arrow-left" /> Categories
+            <b-icon-arrow-left /> Categories
           </b-button>
         </b-col>
         <b-col sm="4">

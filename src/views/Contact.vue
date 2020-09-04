@@ -52,7 +52,7 @@
             variant="secondary"
             href="mailto:juliodrangelfarell@gmail.com"
           >
-            <b-icon icon="envelope" /> juliodrangelfarell@gmail.com
+            <b-icon-envelope /> juliodrangelfarell@gmail.com
           </b-button>
         </b-col>
         <b-col

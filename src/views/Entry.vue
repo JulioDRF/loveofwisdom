@@ -18,7 +18,7 @@
             variant="outline-primary"
             :to="'/category/' + entry.categoryId"
           >
-            <b-icon icon="arrow-left" />
+            <b-icon-arrow-left />
             {{ entry.categoryName }}
           </b-button>
         </b-col>

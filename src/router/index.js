@@ -2,12 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
 
-import About from '@/views/About.vue'
 import Category from '@/views/Category.vue'
-import Contact from '@/views/Contact.vue'
 import Entry from '@/views/Entry.vue'
-import Home from '@/views/Home.vue'
-import NotFound from '@/views/NotFound.vue'
+
+const About = () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+const Contact = () => import(/* webpackChunkName: "contact" */ '@/views/Contact.vue')
+const Home = () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
+const NotFound = () => import(/* webpackChunkName: "notFound" */ '@/views/NotFound.vue')
 
 Vue.use(VueRouter)
 
