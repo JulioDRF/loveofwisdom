@@ -6,9 +6,12 @@
       :text-variant="cardTextColor"
       :title="entry.entryName"
       align="left"
-      @click="goToEntryPage(entry)">
+      @click="goToEntryPage(entry)"
+    >
       <b-card-text>{{ description }}</b-card-text>
-      <b-link :to="'/entry/' + entry.entryId">See more</b-link>
+      <b-link :to="'/entry/' + entry.entryId">
+        See more
+      </b-link>
     </b-card>
   </div>
 </template>
@@ -18,7 +21,10 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'EntryCard',
   props: {
-    entry: Object
+    entry: {
+      type: Object,
+      required: true
+    }
   },
   computed: {
     description () {

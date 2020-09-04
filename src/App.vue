@@ -1,8 +1,11 @@
 <template>
-  <div id="app" :style="injectedStyle">
-    <TheNavBar/>
-    <router-view class="router-content"/>
-    <TheFooter/>
+  <div
+    id="app"
+    :style="injectedStyle"
+  >
+    <TheNavBar />
+    <router-view class="router-content" />
+    <TheFooter />
   </div>
 </template>
 

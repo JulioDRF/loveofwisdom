@@ -4,16 +4,16 @@
       id="entry-card-group"
       :current-page="currentPage"
       :per-page="perPage"
-      :entries="entries">
-    </EntryCardGroup>
+      :entries="entries"
+    />
     <div v-if="needsPagination">
       <b-pagination
-        class="pagination"
         v-model="currentPage"
+        class="pagination"
         :total-rows="entryCount"
         :per-page="perPage"
         aria-controls="entry-card-group"
-      ></b-pagination>
+      />
     </div>
   </div>
 </template>
@@ -23,17 +23,28 @@ import EntryCardGroup from '@/components/EntryCardGroup'
 
 export default {
   name: 'EntryCardGroupPaginated',
+  components: {
+    EntryCardGroup
+  },
   props: {
-    entries: Array,
-    perPage: Number,
+    entries: {
+      type: Array,
+      required: true
+    },
+    perPage: {
+      type: Number,
+      required: true
+    },
     scrollOnPageChange: {
       type: Boolean,
       required: false,
       default: false
     }
   },
-  components: {
-    EntryCardGroup
+  data () {
+    return {
+      currentPage: 1
+    }
   },
   computed: {
     needsPagination () {
@@ -41,11 +52,6 @@ export default {
     },
     entryCount () {
       return this.entries.length
-    }
-  },
-  data () {
-    return {
-      currentPage: 1
     }
   },
   watch: {

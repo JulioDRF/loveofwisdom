@@ -1,52 +1,84 @@
 <template>
   <div id="entry">
-     <b-container fluid="md" class="m-auto">
+    <b-container
+      fluid="md"
+      class="m-auto"
+    >
       <b-row align="center">
         <b-col>
           <h1>{{ entry.entryName }}</h1>
         </b-col>
       </b-row>
       <b-row class="mt-2">
-         <b-col cols="auto" style="mr-auto">
-          <b-button variant="outline-primary" :to="'/category/' + entry.categoryId">
-            <b-icon icon="arrow-left"></b-icon>
+        <b-col
+          cols="auto"
+          style="mr-auto"
+        >
+          <b-button
+            variant="outline-primary"
+            :to="'/category/' + entry.categoryId"
+          >
+            <b-icon icon="arrow-left" />
             {{ entry.categoryName }}
           </b-button>
         </b-col>
       </b-row>
       <b-row class="mt-4">
-        <b-col cols="auto" align="left">
+        <b-col
+          cols="auto"
+          align="left"
+        >
           <b-card
             title="Preamble"
             body-class="preamble-text"
             :bg-variant="cardBackgroundVariant"
-            :text-variant="cardTextColor">
-            <div v-if="needsMathFormatting" :key="entry.entryId + 'Math'">
-              <b-card-text v-katex:auto>{{ formattedPreamble }}</b-card-text>
+            :text-variant="cardTextColor"
+          >
+            <div
+              v-if="needsMathFormatting"
+              :key="entry.entryId + 'Math'"
+            >
+              <b-card-text v-katex:auto>
+                {{ formattedPreamble }}
+              </b-card-text>
             </div>
-            <div v-else :key="entry.entryId">
+            <div
+              v-else
+              :key="entry.entryId"
+            >
               <b-card-text>{{ formattedPreamble }}</b-card-text>
             </div>
             <b-card-text align="left">
-              Full entry: <b-link target="_blank" :href="entry.sepUrl">{{ entry.sepUrl }}</b-link>
+              Full entry: <b-link
+                target="_blank"
+                :href="entry.sepUrl"
+              >
+                {{ entry.sepUrl }}
+              </b-link>
             </b-card-text>
           </b-card>
         </b-col>
       </b-row>
-      <b-row class="mt-5" align="left">
+      <b-row
+        class="mt-5"
+        align="left"
+      >
         <b-col cols="auto">
           <h3>Related Entries</h3>
         </b-col>
       </b-row>
-      <b-row class="mt-2" align="left">
+      <b-row
+        class="mt-2"
+        align="left"
+      >
         <b-col cols="auto">
           <EntryCardGroupPaginated
             :per-page="5"
-            :entries="relatedEntries">
-          </EntryCardGroupPaginated>
+            :entries="relatedEntries"
+          />
         </b-col>
       </b-row>
-     </b-container>
+    </b-container>
   </div>
 </template>
 

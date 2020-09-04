@@ -1,39 +1,52 @@
 <template>
   <div id="home">
-    <b-container fluid="md" class="m-auto">
+    <b-container
+      fluid="md"
+      class="m-auto"
+    >
       <b-row align="center">
-        <b-col cols="auto" class="m-auto">
+        <b-col
+          cols="auto"
+          class="m-auto"
+        >
           <h1>Love of Wisdom</h1>
         </b-col>
       </b-row>
       <b-row align="center">
-        <b-col sm="5" class="m-auto p-4">
+        <b-col
+          sm="5"
+          class="m-auto p-4"
+        >
           <b-input
             v-model="currentSearch"
             placeholder="Filter categories"
             @update="filterCategories"
-          ></b-input>
-
+          />
         </b-col>
       </b-row>
       <b-card-group columns>
-        <transition-group name="category-card-group" tag="div">
+        <transition-group
+          name="category-card-group"
+          tag="div"
+        >
           <b-card
-            class="category-card-group-item"
             v-for="cat in displayedCategories"
             :key="cat.categoryId"
+            class="category-card-group-item"
             :bg-variant="cardBackgroundVariant"
             :text-variant="cardTextColor"
             :title="cat.categoryName"
             :img-src="cat.imageSrc"
             :img-alt="cat.categoryName"
             img-top
-            @click="goToCategoryPage(cat)">
-          </b-card>
+            @click="goToCategoryPage(cat)"
+          />
         </transition-group>
       </b-card-group>
       <div v-if="displayedCategories.length === 0">
-        <h4 align="center">No matches</h4>
+        <h4 align="center">
+          No matches
+        </h4>
       </div>
     </b-container>
   </div>
@@ -45,6 +58,12 @@ import Fuse from 'fuse.js'
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      filteredCategories: [],
+      currentSearch: ''
+    }
+  },
   computed: {
     ...mapState([
       'categories'
@@ -63,12 +82,6 @@ export default {
         threshold: 0.2,
         ignoreLocation: true
       })
-    }
-  },
-  data () {
-    return {
-      filteredCategories: [],
-      currentSearch: ''
     }
   },
   methods: {

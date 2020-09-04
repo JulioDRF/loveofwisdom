@@ -1,22 +1,33 @@
 <template>
   <div id="category">
-    <b-container fluid="md" class="m-auto">
+    <b-container
+      fluid="md"
+      class="m-auto"
+    >
       <b-row>
         <b-col align="center">
           <h1>{{ category.categoryName }}</h1>
         </b-col>
       </b-row>
       <b-row class="mt-4">
-        <b-col sm="4" class="mb-2">
-          <b-button variant="outline-primary" to="/"><b-icon icon="arrow-left"></b-icon> Categories</b-button>
+        <b-col
+          sm="4"
+          class="mb-2"
+        >
+          <b-button
+            variant="outline-primary"
+            to="/"
+          >
+            <b-icon icon="arrow-left" /> Categories
+          </b-button>
         </b-col>
         <b-col sm="4">
           <b-input
-            class="mr-auto"
             v-model="currentSearch"
+            class="mr-auto"
             placeholder="Filter entries"
             @update="filterEntries"
-          ></b-input>
+          />
         </b-col>
       </b-row>
       <b-row class="mt-4">
@@ -24,10 +35,12 @@
           <EntryCardGroupPaginated
             :per-page="10"
             :entries="displayedEntries"
-            scrollOnPageChange>
-          </EntryCardGroupPaginated>
+            scroll-on-page-change
+          />
           <div v-if="displayedEntries.length === 0">
-            <h4 align="center">No matches</h4>
+            <h4 align="center">
+              No matches
+            </h4>
           </div>
         </b-col>
       </b-row>
@@ -43,6 +56,12 @@ export default {
   name: 'Category',
   components: {
     EntryCardGroupPaginated
+  },
+  data () {
+    return {
+      filteredEntries: [],
+      currentSearch: ''
+    }
   },
   computed: {
     category () {
@@ -61,12 +80,6 @@ export default {
         threshold: 0.2,
         ignoreLocation: true
       })
-    }
-  },
-  data () {
-    return {
-      filteredEntries: [],
-      currentSearch: ''
     }
   },
   methods: {

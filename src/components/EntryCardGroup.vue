@@ -1,12 +1,15 @@
 <template>
   <div>
     <b-card-group>
-        <transition-group name="entry-card-group" tag="div">
-          <EntryCard
-            v-for="entry in chunkedEntries"
-            :key="entry.entryId"
-            :entry="entry">
-          </EntryCard>
+      <transition-group
+        name="entry-card-group"
+        tag="div"
+      >
+        <EntryCard
+          v-for="entry in chunkedEntries"
+          :key="entry.entryId"
+          :entry="entry"
+        />
       </transition-group>
     </b-card-group>
   </div>
@@ -17,13 +20,22 @@ import EntryCard from '@/components/EntryCard'
 
 export default {
   name: 'EntryCardGroup',
-  props: {
-    currentPage: Number,
-    perPage: Number,
-    entries: Array
-  },
   components: {
     EntryCard
+  },
+  props: {
+    currentPage: {
+      type: Number,
+      required: true
+    },
+    perPage: {
+      type: Number,
+      required: true
+    },
+    entries: {
+      type: Array,
+      required: true
+    }
   },
   computed: {
     firstIndex () {

@@ -4,21 +4,35 @@
       :type="navBarType"
       :variant="navBarType"
       toggleable="md"
-      fixed="top">
-      <b-navbar-brand class="cursor-pointer" @click="goToHomePage">Love of Wisdom</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
+      fixed="top"
+    >
+      <b-navbar-brand
+        class="cursor-pointer"
+        @click="goToHomePage"
+      >
+        Love of Wisdom
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse" />
+      <b-collapse
+        id="nav-collapse"
+        is-nav
+      >
         <b-navbar-nav class="pr-3">
-          <b-nav-item to="/about">About</b-nav-item>
-          <b-nav-item to="/contact">Contact</b-nav-item>
+          <b-nav-item to="/about">
+            About
+          </b-nav-item>
+          <b-nav-item to="/contact">
+            Contact
+          </b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto pr-3 mb-1">
           <b-nav-form>
             <b-form-checkbox
               switch
               size="md"
+              :checked="darkModeEnabled"
               @change="toggleDarkMode"
-              :checked="darkModeEnabled">
+            >
               Dark Mode
             </b-form-checkbox>
           </b-nav-form>
@@ -29,15 +43,16 @@
               class="nav-vselect"
               placeholder="Jump to an entry"
               label="entryName"
-              selectOnTab
+              select-on-tab
               :options="filteredEntries"
               @search="setCurrentSearch"
-              @input="goToEntryPage"/>
+              @input="goToEntryPage"
+            />
           </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -46,6 +61,11 @@ import Fuse from 'fuse.js'
 
 export default {
   name: 'TheNavBar',
+  data () {
+    return {
+      currentSearch: ''
+    }
+  },
   computed: {
     ...mapState([
       'entries',
@@ -67,11 +87,6 @@ export default {
         ? this.fuse.search(this.currentSearch).map(({ item }) => item)
         : this.entries
       return result.slice(0, 10)
-    }
-  },
-  data () {
-    return {
-      currentSearch: ''
     }
   },
   methods: {
@@ -96,7 +111,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .cursor-pointer {
     cursor: pointer;
