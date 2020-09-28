@@ -17,8 +17,8 @@ export default new Vuex.Store({
     createPersistedState({
       storage: {
         getItem: (key) => Cookies.get(key),
-        setItem: (key, value) => Cookies.set(key, value, { expires: 1 }),
-        removeItem: (key) => Cookies.remove(key)
+        setItem: (key, value) => Cookies.set(key, value, { expires: 1, sameSite: 'strict', secure: true }),
+        removeItem: (key) => Cookies.remove(key, { sameSite: 'strict', secure: true })
       },
       paths: ['darkModeEnabled']
     })
