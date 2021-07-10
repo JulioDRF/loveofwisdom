@@ -2,9 +2,7 @@
   <div id="entry-card-group-paginated">
     <EntryCardGroup
       id="entry-card-group"
-      :current-page="currentPage"
-      :per-page="perPage"
-      :entries="entries"
+      :entries="chunkedEntries"
     />
     <div v-if="needsPagination">
       <b-pagination
@@ -52,6 +50,11 @@ export default {
     },
     entryCount () {
       return this.entries.length
+    },
+    chunkedEntries () {
+      const firstIndex = (this.currentPage - 1) * this.perPage
+      const lastIndex = this.currentPage * this.perPage
+      return this.entries.slice(firstIndex, lastIndex)
     }
   },
   watch: {

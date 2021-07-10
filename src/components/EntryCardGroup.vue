@@ -6,7 +6,7 @@
         tag="div"
       >
         <EntryCard
-          v-for="entry in chunkedEntries"
+          v-for="entry in entries"
           :key="entry.entryId"
           :entry="entry"
         />
@@ -24,28 +24,9 @@ export default {
     EntryCard
   },
   props: {
-    currentPage: {
-      type: Number,
-      required: true
-    },
-    perPage: {
-      type: Number,
-      required: true
-    },
     entries: {
       type: Array,
       required: true
-    }
-  },
-  computed: {
-    firstIndex () {
-      return (this.currentPage - 1) * this.perPage
-    },
-    lastIndex () {
-      return this.currentPage * this.perPage
-    },
-    chunkedEntries () {
-      return this.entries.slice(this.firstIndex, this.lastIndex)
     }
   }
 }

@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     description () {
-      return this.entry.preamble.split('').slice(0, 150).join('').trim() + '...'
+      return this.entry.preamble.slice(0, 150).trim() + '...'
     },
     ...mapGetters([
       'cardTextColor',
