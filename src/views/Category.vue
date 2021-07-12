@@ -77,7 +77,7 @@ export default {
       return new Fuse(this.entriesByCategory, {
         keys: ['entryName'],
         shouldSort: true,
-        threshold: 0.2,
+        threshold: 0.5,
         ignoreLocation: true
       })
     }
