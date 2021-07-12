@@ -139,11 +139,11 @@ export default {
         sum: 'Summer',
         fall: 'Fall'
       }
-      return this.entry.archiveUrls.map((url) => {
-        const dateCode = url.split('/')[4]
+      return this.entry.archives.map((dateCode) => {
         const year = dateCode.slice(-4)
         const season = seasons[dateCode.slice(0, -4)]
         const name = `${season} ${year}`
+        const url = `https://plato.stanford.edu/archives/${dateCode}/entries/${this.entry.entryId}/`
         return {
           url,
           name
